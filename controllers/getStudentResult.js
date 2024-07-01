@@ -1,10 +1,11 @@
 const Result = require("../models/SemesterResult"); // Import the Student model
 const Student=require("../models/Student")
 exports.getStudentResult = async (req, res) => {
-    const { name, dob, rollNo, semester } = req.query;
+    const { dob, rollNo, semester } = req.query;
     try {
+      // console.log("heee")
         // Find student using name, dob, and rollNo
-        const student = await Student.findOne({ name, dob, rollNo });
+        const student = await Student.findOne({ dob, rollNo,semester });
     
         if (!student) {
           return res.status(404).json({ message: 'Student not found' });

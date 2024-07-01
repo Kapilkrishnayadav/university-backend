@@ -1,6 +1,7 @@
 const Student=require("../../models/Student")
 
 exports.postStudent=(async(req,res)=>{
+  console.log(req.body.dob);
     try {
         const newStudent = new Student(req.body); // Create a new Student object from request body
         const savedStudent = await newStudent.save(); // Save the new student to MongoDB
