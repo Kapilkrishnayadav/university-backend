@@ -7,7 +7,7 @@ const StudentSchema = new Schema({
     fatherName: { type: String, required: true },
     batch: { type: String, required: true },
     class_: { type: String, required: true },
-    rollNo: { type: Number, required: true, unique: true },
+    rollNo: { type: String, required: true, unique: true },
     branch: { type: String, required: true },
    
   });
