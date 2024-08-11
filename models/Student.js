@@ -9,6 +9,7 @@ const StudentSchema = new Schema({
     class_: { type: String, required: true },
     rollNo: { type: String, required: true, unique: true },
     branch: { type: String, required: true },
+    resultAccess:{ type: Boolean, required: true }
    
   });
 // Create model from schema

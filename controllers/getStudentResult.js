@@ -3,7 +3,7 @@ const Student=require("../models/Student")
 exports.getStudentResult = async (req, res) => {
     const { dob, rollNo, semester } = req.query;
     try {
-      // console.log("heee")
+      console.log("heee")
         // Find student using name, dob, and rollNo
         const student = await Student.findOne({ dob, rollNo,semester });
     
@@ -12,6 +12,11 @@ exports.getStudentResult = async (req, res) => {
         }
         // console.log(student);
         // Find result for the given student and semester
+        if(student.resultAccess==false)
+        {
+          console.log("hello")
+          return res.status(404).json({ message: 'Access denied' });
+        }
         const result = await Result.findOne({ studentId: student._id, semester });
     
         if (!result) {
